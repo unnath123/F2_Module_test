@@ -29,7 +29,7 @@ async function getlocation(position) {
   display_Map(lat,long)
 }
 function permissionDenied(error) {
-  alert("Permission Denied");
+  alert("Permission Denied "+error);
 }
 
 function display_Map(lat,long) {
@@ -57,19 +57,19 @@ renderData(data);
 
 function renderData(arr){
     let location=document.getElementById("w-block1");
-    location.innerText = arr.name;
+    location.innerText = "Location: "+arr.name;
 
     let wind_speed=document.getElementById("w-block2");
-    wind_speed.innerText = arr.wind.speed+"kmph";
+    wind_speed.innerText = "Wind Speed: "+arr.wind.speed+"kmph";
 
     let humidity = document.getElementById("w-block3");
-    humidity.innerText = arr.main.humidity;
+    humidity.innerText = "Humidity: "+arr.main.humidity;
 
     let timeZone = document.getElementById("w-block4");
-    timeZone.innerText = arr.timezone;
+    timeZone.innerText = "Time Zone: "+arr.timezone;
 
     let pressure = document.getElementById("w-block5");
-    pressure.innerText = arr.main.pressure;
+    pressure.innerText = "Pressure: "+arr.main.pressure;
 
     let windDirection = document.getElementById("w-block6");
     let direction;
@@ -97,13 +97,13 @@ function renderData(arr){
     else{
         direction="South East";
     }
-    windDirection.innerText=direction;
+    windDirection.innerText="Direction: "+direction;
 
     let UVIndex=document.getElementById("w-block7");
-    // UVIndex.innerText=arr.
+    UVIndex.innerText=arr.sys.visibility;
 
     let feelLike=document.getElementById("w-block8");
-    feelLike.innerText=arr.main.feels_like;
+    feelLike.innerText="Feels Like: "+arr.main.feels_like;
 
     
 }
